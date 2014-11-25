@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Adv JS Debug</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container row-fluid">
+		<h1>Advenced JavaScript Debugging</h1>
+		<br>
+		<h3>Chicago JS Meetup</h3>
+		 <input type="text" id="myInput" class="form-control">
+		<button id="myButton" class="btn btn-primary">Click me</button>
+		<br>
+		<h2><a href="http://www.thatjsdude.com/">that js dude</a></h2> 
+		<div class="row row-fluid">
+			<div id="parent" class="text-element" style="border:3px solid blue; border-radius:20px;">
+				<h2>Parent Element</h2>
+			</div>
+			<button class="btn btn-info" onclick="appendChildButtonClicked()">Append child</button>
+			<button class="btn btn-info" onclick="changeAttributeButtonClicked()">Change Border Color</button>
+			<button class="btn btn-info" onclick="removeChildButtonClicked()">Remove Child</button>
+		</div>
+		<img class="img-circle" src="../images/work.png" alt="">
+		<img class="img-circle" src="../images/head.jpg" alt="">
+	</div>
+	<script src = "data.js"></script>
+	<script src="console.js"></script>
+	<script src = "sources.js"></script>
+	<script src="jquery.js"></script>
+	<script src="events.js"></script>
+
+</body>
+</html>
