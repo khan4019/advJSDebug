@@ -10,10 +10,15 @@ myDataRef.on("value", function(snapshot) {
 
 
 var formatData = function (data) {
+  var retrievedData =[];
+  for (var i in data) {
+    retrievedData.push(data[i]);
+  };
+
   return [
     {
       key:'unnecessary data',
-      values: data
+      values: retrievedData
     }
   ];
 }
@@ -37,3 +42,17 @@ var drawChart = function drawChart (data) {
     return chart;
   });
 }
+
+
+
+//save new item
+$(document).ready(function(){
+  $('#addRecord').click(function () {
+    myDataRef.push({
+      name:$('#name').val(),
+      salary:$('#salary').val()
+    }, function (error) {
+      console.log(error);
+    });
+  });
+});

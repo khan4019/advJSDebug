@@ -2,17 +2,26 @@
   <head>
     <script src="../scripts/d3.js"></script>
     <script src="../scripts/nv.d3.js"></script>
+    <link rel="stylesheet" href="../styles/bootstrap.css">
     <link rel="stylesheet" href="../styles/nv.d3.css">
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    
+    <style>
+		#chart{
+			height: 400px;
+		}
+    </style>
+    <script src="../scripts/firebase.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 	<script src="../scripts/demoApp.js"></script>
   </head>
   <body>
     <div id='messagesDiv'></div>
-    <input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'>
-
+    <div class="form-inline">
+    	<div class="form-group">
+    		    <input class="form-control" type='text' id='name' placeholder='Name'>
+    		    <input class="form-control" type='text' id='salary' placeholder='Salary'>
+    		    <button class="btn btn-success form-control" id="addRecord">add Record</button>
+    	</div>
+    </div>
     <div id="chart">
     	<svg></svg>
     </div>
