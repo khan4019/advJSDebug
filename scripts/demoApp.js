@@ -1,5 +1,5 @@
-
-var myDataRef = new Firebase('https://radiant-heat-977.firebaseio.com/');
+var appRoot = 'https://radiant-heat-977.firebaseio.com/';
+var myDataRef = new Firebase(appRoot);
 
 
 myDataRef.on("value", function(snapshot) {
@@ -18,7 +18,7 @@ var formatData = function (data) {
   return [
     {
       key:'unnecessary data',
-      values: retrievedData
+      values: uniquifyNames(retrievedData)
     }
   ];
 }
@@ -48,11 +48,54 @@ var drawChart = function drawChart (data) {
 //save new item
 $(document).ready(function(){
   $('#addRecord').click(function () {
-    myDataRef.push({
+    var newItem = {
       name:$('#name').val(),
       salary:$('#salary').val()
+    };
+
+    var pushedItem = myDataRef.push(newItem);
+
+    console.log('pushed', pushedItem);
+  });
+
+
+  $('#deleteLast').on('click', function () {
+    myDataRef.on("value", function(snapshot) {
+      var items = snapshot.val();
+      deleteLast(items);
     }, function (error) {
-      console.log(error);
+      console.error("Failed to remove: " + error.code);
     });
   });
+
 });
+
+
+var deleteLast = function deleteLast (items) {
+  for(var lastKey in items);
+  
+  var itemRef = new Firebase(appRoot + '/' + lastKey);
+  var item = itemRef.child(lastKey);
+  // itemRef.remove(function(error) {
+  //   alert(error ? "Uh oh!" : "Success!");
+  // });
+  console.log(item);
+};
+
+
+var uniquifyNames = function(items){
+  var names = {};
+  
+  return items.map(function (item) {
+       
+    if(names[item.name]){
+      item.name += names[item.name];
+    }
+    
+    names[item.name] = (names[item.name]) ? names[item.name] + " " : " ";
+    
+    return item;
+  });
+
+ console.table(items);
+}
