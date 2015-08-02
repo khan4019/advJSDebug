@@ -79,7 +79,6 @@ var deleteLast = function deleteLast (items) {
   // itemRef.remove(function(error) {
   //   alert(error ? "Uh oh!" : "Success!");
   // });
-  console.log(item);
 };
 
 
@@ -90,12 +89,11 @@ var uniquifyNames = function(items){
        
     if(names[item.name]){
       item.name += names[item.name];
+      names[item.name] += " "; //swap to work
     }
-    
-    names[item.name] = (names[item.name]) ? names[item.name] + " " : " ";
-    
+    else{
+      names[item.name] = " ";
+    }
     return item;
   });
-
- console.table(items);
 }
