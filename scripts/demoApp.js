@@ -2,8 +2,8 @@ var appRoot = 'https://radiant-heat-977.firebaseio.com/';
 var myDataRef = new Firebase(appRoot);
 
 
-myDataRef.on("value", function(snapshot) {
-  drawChart(formatData(snapshot.val()));
+myDataRef.on("value", function(response) {
+  drawChart(formatData(response.val()));
 }, function (errorObject) {
   console.log("The read failed: " + errorObject.code);
 });
@@ -60,8 +60,8 @@ $(document).ready(function(){
 
 
   $('#deleteLast').on('click', function () {
-    myDataRef.on("value", function(snapshot) {
-      var items = snapshot.val();
+    myDataRef.on("value", function(response) {
+      var items = response.val();
       deleteLast(items);
     }, function (error) {
       console.error("Failed to remove: " + error.code);
