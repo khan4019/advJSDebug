@@ -3,22 +3,26 @@ var myDataRef = new Firebase(appRoot);
 
 
 myDataRef.on("value", function(response) {
-  drawChart(formatData(response.val()));
+  var data = response.val();
+  var chartData = formatChartData(data);
+  drawChart(chartData);
 }, function (errorObject) {
   console.log("The read failed: " + errorObject.code);
 });
 
 
-var formatData = function (data) {
+var formatChartData = function (data) {
   var retrievedData =[];
   for (var i in data) {
     retrievedData.push(data[i]);
   };
 
+  var dataWithUniqueName = uniquifyNames(retrievedData);
+
   return [
     {
       key:'unnecessary data',
-      values: uniquifyNames(retrievedData)
+      values: dataWithUniqueName
     }
   ];
 }
@@ -56,7 +60,7 @@ $(document).ready(function(){
       showNoDataWarning(name, salary);
       return;
     }
-    
+
     var newItem = {
       name: name,
       salary: salary
@@ -147,17 +151,39 @@ function toggleErroMessage(selector, value, msg){
   }
 }
 
+/*
+  bad data breaks code. Broken code needs more code to fix.
+  and more code means higher job security. So, smile :)
+*/
+
+/*
+  how it works: 
+  we keep track of names in the "names" object. 
+  First time we just put in the object. 
+  For a new item, if we find the name in the object this means 
+  we got a duplicate. 
+  we have to add a white space after the current name
+  to distinguish it from the previous one
+
+  if we hit the same name again (for the third time). 
+  by adding a one more white space will not be enough
+  
+  Now i am tired of writing comment. 
+  Need a coffee break.
+*/
+
 var uniquifyNames = function(items){
   var names = {};
   
   return items.map(function (item) {
-       
-    if(names[item.name]){
+    console.log(names[item.name]);  
+    if(names[item.name] !=undefined){
+      names[item.name] += " ";
       item.name += names[item.name];
-      names[item.name] += " "; //swap to work
+      console.count("inside");
     }
     else{
-      names[item.name] = " ";
+      names[item.name] = "";
     }
     return item;
   });
