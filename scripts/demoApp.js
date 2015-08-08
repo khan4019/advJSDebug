@@ -176,8 +176,8 @@ var uniquifyNames = function(items){
   var names = {};
   
   return items.map(function (item) {
-    console.log(names[item.name]);  
-    if(names[item.name] !=undefined){
+     
+    if(names[item.name]){
       names[item.name] += " ";
       item.name += names[item.name];
       console.count("inside");

@@ -132,101 +132,29 @@
 						<li>data is lost</li>
 					</section>
 					<section>
-							<h2>console - summary</h2>
-						<ol>
-							<!-- <li>split view</li> -->
-							<li>console.table()</li>
-							<li>optional column</li>
-							<div class="fragment">
-								<li>preserve log</li>
-							</div>
-							<div class="fragment">
-								<li>count</li>
-							</div>
-						</ol>
-					</section>
-					<section>
-						<h2>console - summary</h2>
-						<li>log xmlHttpRequest</li>
-						<li class="fragment">keys(), values()</li>
-						<li class="fragment">copy()</li>
-						<li class="fragment">$_</li>
-						<li class="fragment">document.body.contentEditable = true</li>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h1>Source</h1>
-						<a href="http://devtoolstips.com/">dev tools tips</a>
-					</section>
-					<section>
-						<h2>source - summary</h2>
-						<ol>
-							<li>Open File (Ctrl+P)</li>
-							<li class="fragment">Search (Ctrl+F)</li>
-							<li class="fragment">Search All (Ctrl + shift + F)</li>
-							<li class="fragment">Filter Function (Ctrl + shift + O)</li>
-							<li class="fragment">Goto a line (Ctrl + G)</li>
-							<li class="fragment">Matching Bracket (Ctrl + M)</li>
-							<li class="fragment">Next selection (Ctrl + D)</li>
-						</ol>
-					</section>
-					<section>
-						<h2>sources -  summary</h2>
-						<ol class="stretch">
-							<li class="fragment"><h3>Put Break points</h3></li>
-							<li class="fragment"><h3>console.trace()</h3></li>
-							<li class="fragment">debugger;</li>
-							<li class="fragment">debug(), undebug()</li>
-						</ol>
-					</section>
-					<section>
-						<h2>Live Edits -  summary</h2>
-						<ol class="stretch">
-							<li class="fragment">multiple cursor (ctrl + click)</li>
-							<li class="fragment">column selection (alt + drag)</li>
-							<li class="fragment">local modification</li>
-						</ol>
-					</section>
-					<section>
-						<h2>Left side</h2>
-						<ol>
-							<li>drag a file to editor</li>
-							<li>add work space</li>
-							<div class="fragment">
-								<li>add, edit, delete files</li>
-								<li>local modifications</li>
-							</div>
-						</ol>
+						<h2>Summary: Problem-1</h2>
+						<ul>
+							<li>Element: Event Listener</li>
+							<li class="fragment">Source: Event Listener BreakPoint</li>
+							
+							<li class="fragment">monitorEvent(selector, events)</li>
+							<li class="fragment">unmonitorEvents(selector)</li>
+							<li class="fragment">for jquery, findEventHandlers.js</li>
+						</ul>
 						<br>
 						<br>
-						<a href="https://developer.chrome.com/devtools/docs/workspaces">set workspace</a>
-						<br>
-						<a href="https://developer.chrome.com/devtools/docs/authoring-development-workflow">authoring-development-workflow</a>
+						<a href="https://github.com/ruidfigueiredo/findHandlersJS ">jquery findEventHandlers</a>
 					</section>
 					<section>
-						<h2>right Side</h2>
-						<ol>
-							<li>Deactivate all breakpoints</li>
-							<li>pause on error</li>
-							<div class="fragment">
-								<li>watch expression
-								<li>call stack
-							</div>
-							<div class="fragment">
-								<li>scope variable
-								<li>breakpoints
-							</div>
-							<div class="fragment">
-								<li>Dom breakpoints (know about it)
-								<li>XHR breakpoints
-							</div>
-							<li class="fragment">Event Listener breakpoints</li>
-						</ol>
-					</section>
-					<section>
-						<h2>Drag image</h2>
-						<li>from source panel just drag to a folder</li>
+						<h2>Summary: Problem-2</h2>
+						<ul>
+							<li>open file: Ctrl + P</li>
+							<li class="fragment">filter function: Ctrl + shift + O</li>
+							<li class="fragment">Matching Bracket: Ctrl + M</li>
+							<li class="fragment">console.table()</li>
+							<li class="fragment">conditional breakpoint</li>
+							<li class="fragment">Esc to open console</li>
+						</ul>
 					</section>
 				</section>
 				<section>
@@ -265,25 +193,7 @@
 <!-- 						<section>
 						<img src="images/sickDay.jpg" alt="">
 					</section> -->
-				</section>
-				<section>
-					<section>
-						<h1>snippet</h1>
-					</section>
-					<section>
-						<h2>My fav - snippets</h2>
-						<ul>
-							<li>all globals</li>
-							<li>jquerify</li>
-							<li>all colors</li>
-							<li>view cookies</li>
-							<li>form contorls</li>
-						</ul>
-						<br>
-						<br>
-						<a href="http://bgrins.github.io/devtools-snippets/">devtools-snippet</a>
-					</section>
-				</section>
+				</section>				
 				<section>
 					<section>
 						<h1>Async JS</h1>
@@ -338,37 +248,20 @@
 				</section>
 				<section>
 					<section>
-						<h1>Elements</h1>
+						<h1>snippet</h1>
 					</section>
 					<section>
-						<h2>Elements - summary</h2>
-						<ol>
-							<li class="fragment">$(), $$()
-							<li class="fragment">$0, $1, $2
-							<li class="fragment">Event handlers
-							<li class="fragment">Problem with jquery event listener
-							<li class="fragment">findEventHandlers
-							<li class="fragment">break on dom events</li>
-							<li>$_ to access the value of the most recently evaluated expression.﻿</li>
-						</ol>
-					</section>
-					<section>
-						<h2>monitor events</h2>
-						<ol>
-							<li class="fragment">getEventListeners(el)
-							<li class="fragment">monitorEvents(el)[0])
-							<li class="fragment">monitorEvents(el, ‘click’)
-							<li class="fragment">monitorEvents(el, [‘click’, ‘’keyup])
-							<li class="fragment">unmonitorEvents(el)
-						</ol>
-					</section>
-					<section>
-						<h2>DOM break points</h2>
-						<ol>
-							<li>sub tree modification</li>
-							<li>attribute modification</li>
-							<li>node removal</li>
-						</ol>
+						<h2>My fav - snippets</h2>
+						<ul>
+							<li>all globals</li>
+							<li>jquerify</li>
+							<li>all colors</li>
+							<li>view cookies</li>
+							<li>form contorls</li>
+						</ul>
+						<br>
+						<br>
+						<a href="http://bgrins.github.io/devtools-snippets/">devtools-snippet</a>
 					</section>
 				</section>
 				<section>
@@ -414,11 +307,23 @@
 						<h2>black box script</h2>
 					</section>
 					<section>
-						<h2>Filter css at the bottom</h2>
-					</section>
-					<section>
 						<h2>device mode</h2>
 						<a href="https://www.youtube.com/watch?t=264&v=FrAZWiMWRa4">dev tool device simulation</a>
+					</section>
+					<section>
+						<h2>Workspace</h2>
+						<ol>
+							<li>add work space</li>
+							<div class="fragment">
+								<li>add, edit, delete files</li>
+								<li>local modifications</li>
+							</div>
+						</ol>
+						<br>
+						<br>
+						<a href="https://developer.chrome.com/devtools/docs/workspaces">set workspace</a>
+						<br>
+						<a href="https://developer.chrome.com/devtools/docs/authoring-development-workflow">authoring-development-workflow</a>
 					</section>
 				</section>
 				<section>
