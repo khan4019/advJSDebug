@@ -47,13 +47,16 @@ var drawChart = function drawChart (data) {
 
 //save new item
 $(document).ready(function(){
-  $('#addRecord').click(function () {
+  $('#addRecord').click(function addRecordHandler() {
+    
     var name = $('#name').val();
     var salary = $('#salary').val();
+    
     if(!name || !salary){
       showNoDataWarning(name, salary);
       return;
     }
+    
     var newItem = {
       name: name,
       salary: salary
@@ -65,7 +68,7 @@ $(document).ready(function(){
 
   var lastAdded = document.getElementById("showLast");
 
-  lastAdded.addEventListener("click", function showLastAdded (e) {
+  lastAdded.addEventListener("click", function showLastHandler (e) {
     showLastItem();
   });
 
@@ -82,7 +85,7 @@ $(document).ready(function(){
 });
 
 
-var deleteLast = function deleteLast (items) {
+var deleteLast = function deleteLastHandler (items) {
   for(var lastKey in items);
   
   var itemRef = new Firebase(appRoot + '/' + lastKey);
