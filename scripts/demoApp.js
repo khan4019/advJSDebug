@@ -48,14 +48,25 @@ var drawChart = function drawChart (data) {
 //save new item
 $(document).ready(function(){
   $('#addRecord').click(function () {
+    var name = $('#name').val();
+    var salary = $('#salary').val();
+    if(!name || !salary){
+      showNoDataWarning(name, salary);
+      return;
+    }
     var newItem = {
-      name:$('#name').val(),
-      salary:$('#salary').val()
+      name: name,
+      salary: salary
     };
 
     var pushedItem = myDataRef.push(newItem);
 
-    console.log('pushed', pushedItem);
+  });
+
+  var lastAdded = document.getElementById("showLast");
+
+  lastAdded.addEventListener("click", function showLastAdded (e) {
+    showLastItem();
   });
 
 
@@ -81,6 +92,57 @@ var deleteLast = function deleteLast (items) {
   // });
 };
 
+var showLastItem = function () {
+  myDataRef.on("value", function(response) {
+    var items = response.val();
+    for(var lastKey in items);
+    displayLastItemDialog(items[lastKey]);
+  }, function (error) {
+    console.error("Failed to remove: " + error.code);
+  });
+}
+
+var displayLastItemDialog = function (lastItem) {
+    var dlg = $("#dialog-last-item");
+    dlg.removeClass('hide');
+    $('#showName').text(lastItem.name);
+    $('#showSalary').text(d3.format(",.0f")(lastItem.salary));
+    dlg.dialog({
+      buttons: {
+          "Ok" : function () {
+              $(this).dialog("close");
+          }
+      }
+  });
+}
+
+var showNoDataWarning = function (name, salary) {
+ var dlg = $("#dialog-error");
+    
+  dlg.removeClass('hide');
+
+  toggleErroMessage('#newName', name, "Who the hell you are talking about!");
+  toggleErroMessage('#newSalary', salary,"How much that guy make!");
+
+  dlg.dialog({
+    width:600,
+    buttons: {
+        "Ok" : function () {
+            $(this).dialog("close");
+        }
+    }
+  }); 
+}
+
+function toggleErroMessage(selector, value, msg){
+  if(value){
+    $(selector+'Line').hide();
+  }
+  else{
+    $(selector+'Line').show();
+    $(selector).text(msg);
+  }
+}
 
 var uniquifyNames = function(items){
   var names = {};
