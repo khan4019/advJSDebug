@@ -110,7 +110,7 @@ function addRecordHandler() {
 
 var loadData = function loadData (reqListener) {
   
-  var url = "http://khan4019.github.io/advJSDebug/scripts/demoData.json";
+  var url = "http://khan4019.github.io/advJSDebug/scripts/salaryData.json";
 
   var oReq = new XMLHttpRequest();
   oReq.addEventListener('load', reqListener);
