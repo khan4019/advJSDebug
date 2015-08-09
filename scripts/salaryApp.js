@@ -56,7 +56,7 @@ var drawChart = function drawChart (data) {
 //save new item
 $(document).ready(function(){
 
-  loadData(initialCountLisetner);
+  logGitData(initialCountLisetner);
 
   $('#addRecord').click(addRecordHandler);
 
@@ -68,7 +68,7 @@ $(document).ready(function(){
 
   document.getElementById("recordCount")
           .addEventListener("click", function recordCountHandler (e) {
-            loadData(showRecordCountListener);
+            loadFirebaseData(showRecordCountListener);
           });
 
 
@@ -76,10 +76,8 @@ $(document).ready(function(){
 });
   
 
-var showRecordCountListener = function () {
-  var itemsObj = JSON.parse(this.responseText);
-  var chartItems = getChartItems(itemsObj); 
-  showRecordCount(chartItems);      
+var showRecordCountListener = function (chartItems) {
+  showRecordCount(chartItems[0].values);      
 }  
 
 var initialCountLisetner = function () {
@@ -108,7 +106,7 @@ function addRecordHandler() {
 
   }
 
-var loadData = function loadData (reqListener) {
+var logGitData = function logGitData (reqListener) {
   
   var url = "http://khan4019.github.io/advJSDebug/scripts/salaryData.json";
 
@@ -124,9 +122,20 @@ var showLastItem = function () {
     for(var lastKey in items);
     displayLastItemDialog(items[lastKey]);
   }, function (error) {
-    console.error("Failed to remove: " + error.code);
+    console.error("Failed to get data: " + error.code);
   });
 }
+
+var loadFirebaseData = function (resHandler) {
+  myDataRef.on("value", function(response) {
+    var data = response.val();
+    var chartData = formatChartData(data);
+    resHandler(chartData);
+  }, function (error) {
+    console.error("Failed to get data: " + error.code);
+  });
+}
+
 
 var displayLastItemDialog = function (lastItem) {
     var dlg = $("#dialog-last-item");
