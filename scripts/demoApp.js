@@ -12,12 +12,9 @@ myDataRef.on("value", function(response) {
 
 
 var formatChartData = function (data) {
-  var retrievedData =[];
-  for (var i in data) {
-    retrievedData.push(data[i]);
-  };
+  var chartItems = getChartItems(data);
 
-  var dataWithUniqueName = uniquifyNames(retrievedData);
+  var dataWithUniqueName = uniquifyNames(chartItems);
 
   return [
     {
@@ -27,7 +24,14 @@ var formatChartData = function (data) {
   ];
 }
 
+var getChartItems = function (data) {
+  var chartItems =[];
+  for (var i in data) {
+    chartItems.push(data[i]);
+  };
 
+  return chartItems;
+}
 
 var drawChart = function drawChart (data) {
   nv.addGraph(function() {
@@ -51,13 +55,47 @@ var drawChart = function drawChart (data) {
 
 //save new item
 $(document).ready(function(){
-  $('#addRecord').click(function addRecordHandler() {
+
+  loadData(initialCountLisetner);
+
+  $('#addRecord').click(addRecordHandler);
+
+  var lastAdded = document.getElementById("showLast");
+  lastAdded.addEventListener("click", function showLastHandler (e) {
+    showLastItem();
+  });
+
+
+  document.getElementById("recordCount")
+          .addEventListener("click", function recordCountHandler (e) {
+            loadData(showRecordCountListener);
+          });
+
+
+
+});
+  
+
+var showRecordCountListener = function () {
+  var itemsObj = JSON.parse(this.responseText);
+  var chartItems = getChartItems(itemsObj); 
+  showRecordCount(chartItems);      
+}  
+
+var initialCountLisetner = function () {
+  var itemsObj = JSON.parse(this.responseText);
+  var chartItems = getChartItems(itemsObj); 
+  $('#initial-count').text(chartItems.length); 
+}
+
+
+function addRecordHandler() {
     
     var name = $('#name').val();
     var salary = $('#salary').val();
     
     if(!name || !salary){
-      showNoDataWarning(name, salary);
+      showDataError(name, salary);
       return;
     }
 
@@ -68,35 +106,16 @@ $(document).ready(function(){
 
     var pushedItem = myDataRef.push(newItem);
 
-  });
+  }
 
-  var lastAdded = document.getElementById("showLast");
-
-  lastAdded.addEventListener("click", function showLastHandler (e) {
-    showLastItem();
-  });
-
-
-  $('#deleteLast').on('click', function () {
-    myDataRef.on("value", function(response) {
-      var items = response.val();
-      deleteLast(items);
-    }, function (error) {
-      console.error("Failed to remove: " + error.code);
-    });
-  });
-
-});
-
-
-var deleteLast = function deleteLastHandler (items) {
-  for(var lastKey in items);
+var loadData = function loadData (reqListener) {
   
-  var itemRef = new Firebase(appRoot + '/' + lastKey);
-  var item = itemRef.child(lastKey);
-  // itemRef.remove(function(error) {
-  //   alert(error ? "Uh oh!" : "Success!");
-  // });
+  var url = "http://khan4019.github.io/advJSDebug/scripts/demoData.json";
+
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener('load', reqListener);
+  oReq.open("get", url, true);
+  oReq.send();
 };
 
 var showLastItem = function () {
@@ -123,7 +142,7 @@ var displayLastItemDialog = function (lastItem) {
   });
 }
 
-var showNoDataWarning = function (name, salary) {
+var showDataError = function (name, salary) {
  var dlg = $("#dialog-error");
     
   dlg.removeClass('hide');
@@ -149,6 +168,22 @@ function toggleErroMessage(selector, value, msg){
     $(selector+'Line').show();
     $(selector).text(msg);
   }
+}
+
+var showRecordCount = function (data) {
+ var dlg = $("#dialog-record-count");
+    
+  dlg.removeClass('hide');
+
+  $('#numberOfRecords').text(data.length);
+
+  dlg.dialog({
+    buttons: {
+        "Ok" : function () {
+            $(this).dialog("close");
+        }
+    }
+  }); 
 }
 
 /*

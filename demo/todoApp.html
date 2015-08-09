@@ -18,6 +18,9 @@
 		#dialog-error span{
 			font-size: 1.3em;
 		}
+		#dialog-record-count span{
+			font-size: 2.5em;
+		}
     </style>
     <script src="../scripts/firebase.js"></script>
     <script src="../scripts/jquery-2.1.4.min.js"></script>
@@ -32,8 +35,8 @@
 		    <input class="form-control" type='text' id='salary' placeholder='Salary'>
 		    <button class="btn btn-success form-control" id="AddRecord">Add Record</button>
 		    <button class="btn btn-info" id="showLast">Show Last</button>
-		    <button class="btn btn-danger form-control" id="deleteLast">Delete Last</button>
-
+		    <button class="btn btn-info" id="recordCount">Record Count</button>
+			<h3 class="text-primary">Initial count: <span id="initial-count"></span></h3>
     	</div>
     </div>
 	
@@ -52,4 +55,7 @@
       <h2 class="text-danger">Your Boss is watching!</h2>
     </div>
 
+	<div id="dialog-record-count" class="hide dialog" title="Number of Records" >
+	  <p>Record count: <span id="numberOfRecords" class="text-success"></span></p>	  
+	</div>
   </body>
