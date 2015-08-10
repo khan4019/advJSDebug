@@ -25,18 +25,21 @@
     <script src="../scripts/firebase.js"></script>
     <script src="../scripts/jquery-2.1.4.min.js"></script>
     <script src="../scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>
-	<script src="../scripts/salaryApp.js"></script>
+  	<script src="../scripts/salaryApp.js"></script>
+    <script src="../scripts/findEventHandlers.js"></script>
   </head>
   <body>
-    <div id='messagesDiv'></div>
-    <div class="form-inline">
+    <div class="text-center">
+      <h1 class="text-primary"><strong>JS Dude Salary App</strong></h1>
+      <p>The Promised amount you never get</small>
+    </div>
+    <div class="form-inline text-center">
     	<div class="form-group">
 		    <input class="form-control" type='text' id='name' placeholder='Name'>
 		    <input class="form-control" type='text' id='salary' placeholder='Salary'>
 		    <button class="btn btn-success form-control" id="AddRecord">Add Record</button>
 		    <button class="btn btn-info" id="showLast">Show Last</button>
 		    <button class="btn btn-info" id="recordCount">Record Count</button>
-			<h3 class="text-primary">Initial count: <span id="initial-count"></span></h3>
     	</div>
     </div>
 	
@@ -58,4 +61,5 @@
 	<div id="dialog-record-count" class="hide dialog" title="Number of Records" >
 	  <p>Record count: <span id="numberOfRecords" class="text-success"></span></p>	  
 	</div>
+  <h3 class="text-primary">Initial Records: <span id="initial-count"></span></h3>
   </body>

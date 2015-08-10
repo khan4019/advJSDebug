@@ -198,36 +198,34 @@ var showRecordCount = function (data) {
 /*
   bad data breaks code. Broken code needs more code to fix.
   and more code means higher job security. So, smile :)
-*/
 
-/*
+
+
   how it works: 
-  we keep track of names in the "names" object. 
-  First time we just put in the object. 
-  For a new item, if we find the name in the object this means 
-  we got a duplicate. 
-  we have to add a white space after the current name
+  we keep track of names in the "uniqueNames" object. 
+  
+  If a name exists in the uniqueNames object, you got a duplicate. 
+
+  For a duplicate, you will add a white space
   to distinguish it from the previous one
 
-  if we hit the same name again (for the third time). 
-  by adding a one more white space will not be enough
-  
+  for the second and third duplicate keep adding white spaces 
+
   Now i am tired of writing comment. 
-  Need a coffee break.
+  will come back after coffee break!
 */
 
 var uniquifyNames = function(items){
-  var names = {};
+  var uniqueNames = {};
   
   return items.map(function (item) {
      
-    if(names[item.name]){
-      names[item.name] += " ";
-      item.name += names[item.name];
-      console.count("inside");
+    if(uniqueNames[item.name]){
+      uniqueNames[item.name] += " ";
+      item.name += uniqueNames[item.name];
     }
     else{
-      names[item.name] = "";
+      uniqueNames[item.name] = "";
     }
     return item;
   });
