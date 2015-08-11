@@ -74,7 +74,7 @@ $(document).ready(function(){
 
   document.getElementById("recordCount").addEventListener("click", anotherRecordCountHandler);
 
- $('#addRecord').click(secondHandler);
+ // $('#addRecord').click(secondHandler);
 
 });
   
@@ -137,7 +137,9 @@ var showLastItem = function () {
   myDataRef.on("value", function(response) {
     var items = response.val();
     for(var lastKey in items);
-    displayLastItemDialog(items[lastKey]);
+    var lastItem = items[lastKey];
+    var lastRecord = getRecord(lastItem.name, lastItem.salary);
+    displayLastItemDialog(lastRecord);
   }, function (error) {
     console.error("Failed to get data: " + error.code);
   });
@@ -238,10 +240,10 @@ var uniquifyNames = function(items){
   var uniqueNames = {};
   
   return items.map(function (item) {
-     
     if(uniqueNames[item.name]){
       uniqueNames[item.name] += " ";
       item.name += uniqueNames[item.name];
+
     }
     else{
       uniqueNames[item.name] = "";
