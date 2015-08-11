@@ -5,7 +5,7 @@ var fakeSlowNetwork;
   var networkFakeDiv = document.querySelector('.network-fake');
   var checkbox = networkFakeDiv.querySelector('input');
 
-  fakeSlowNetwork = Number(localStorage.getItem(lsKey)) || 0;
+  fakeSlowNetwork = Number(localStorage.getItem(lsKey)) || 1;
 
   networkFakeDiv.style.display = 'block';
   checkbox.checked = !!fakeSlowNetwork;
