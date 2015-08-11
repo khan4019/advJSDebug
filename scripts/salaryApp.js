@@ -58,7 +58,7 @@ $(document).ready(function(){
 
   logGitData(initialCountLisetner);
 
-  $('#AddRecord').click(addRecordHandler);
+  $('#addRecord').click(addRecordHandler);
 
   var lastAdded = document.getElementById("showLast");
   lastAdded.addEventListener("click", function showLastHandler (e) {
@@ -225,7 +225,7 @@ var uniquifyNames = function(items){
   
   return items.map(function (item) {
      
-    if(uniqueNames[item.name] !=undefined){
+    if(uniqueNames[item.name]){
       uniqueNames[item.name] += " ";
       item.name += uniqueNames[item.name];
     }
