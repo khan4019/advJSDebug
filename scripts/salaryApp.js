@@ -58,7 +58,7 @@ $(document).ready(function(){
 
   logGitData(initialCountLisetner);
 
-  $('#addRecord').click(addRecordHandler);
+  $('#AddRecord').click(addRecordHandler);
 
   var lastAdded = document.getElementById("showLast");
   lastAdded.addEventListener("click", function showLastHandler (e) {
@@ -72,6 +72,7 @@ $(document).ready(function(){
           });
 
 
+  // $('#AddRecord').click(secondHandler);
 
 });
   
@@ -106,7 +107,7 @@ function addRecordHandler() {
 
   }
 
-var logGitData = function logGitData (reqListener) {
+  var logGitData = function logGitData (reqListener) {
   
   var url = "http://khan4019.github.io/advJSDebug/scripts/salaryData.json";
 
@@ -115,6 +116,10 @@ var logGitData = function logGitData (reqListener) {
   oReq.open("get", url, true);
   oReq.send();
 };
+
+function secondHandler(e) {
+  console.log('second click handler');
+}
 
 var showLastItem = function () {
   myDataRef.on("value", function(response) {
@@ -220,7 +225,7 @@ var uniquifyNames = function(items){
   
   return items.map(function (item) {
      
-    if(uniqueNames[item.name]){
+    if(uniqueNames[item.name] !=undefined){
       uniqueNames[item.name] += " ";
       item.name += uniqueNames[item.name];
     }
