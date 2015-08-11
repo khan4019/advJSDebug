@@ -60,8 +60,8 @@ $(document).ready(function(){
 
   $('#addRecord').click(addRecordHandler);
 
-  var lastAdded = document.getElementById("showLast");
-  lastAdded.addEventListener("click", function showLastHandler (e) {
+  var btnShowLast = document.getElementById("showLast");
+  btnShowLast.addEventListener("click", function showLastHandler (e) {
     showLastItem();
   });
 
@@ -72,7 +72,9 @@ $(document).ready(function(){
           });
 
 
-  // $('#AddRecord').click(secondHandler);
+  document.getElementById("recordCount").addEventListener("click", anotherRecordCountHandler);
+
+ // $('#addRecord').click(secondHandler);
 
 });
   
@@ -98,34 +100,46 @@ function addRecordHandler() {
       return;
     }
 
+    addRecord(name, salary);
+
+  }
+
+  function addRecord (name, salary) {
+    var newItem = getRecord(name, salary);
+    myDataRef.push(newItem);
+  }
+
+  function getRecord (name, salary) {
+    
     var newItem = {
       name: name,
       salary: salary
     };
 
-    var pushedItem = myDataRef.push(newItem);
-
+    return newItem;
   }
 
   var logGitData = function logGitData (reqListener) {
   
-  var url = "http://khan4019.github.io/advJSDebug/scripts/salaryData.json";
+    var url = "http://khan4019.github.io/advJSDebug/scripts/salaryData.json";
 
-  var oReq = new XMLHttpRequest();
-  oReq.addEventListener('load', reqListener);
-  oReq.open("get", url, true);
-  oReq.send();
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener('load', reqListener);
+    oReq.open("get", url, true);
+    oReq.send();
 };
 
 function secondHandler(e) {
-  console.log('second click handler');
+  console.log('why are you clicking around????');
 }
 
 var showLastItem = function () {
   myDataRef.on("value", function(response) {
     var items = response.val();
     for(var lastKey in items);
-    displayLastItemDialog(items[lastKey]);
+    var lastItem = items[lastKey];
+    var lastRecord = getRecord(lastItem.name, lastItem.salary);
+    displayLastItemDialog(lastRecord);
   }, function (error) {
     console.error("Failed to get data: " + error.code);
   });
@@ -200,6 +214,10 @@ var showRecordCount = function (data) {
   }); 
 }
 
+var anotherRecordCountHandler = function anotherRecordCountHandler (e) {
+  console.log('you have extra click handler');
+}
+
 /*
   bad data breaks code. Broken code needs more code to fix.
   and more code means higher job security. So, smile :)
@@ -214,20 +232,18 @@ var showRecordCount = function (data) {
   For a duplicate, you will add a white space
   to distinguish it from the previous one
 
-  for the second and third duplicate keep adding white spaces 
-
-  Now i am tired of writing comment. 
-  will come back after coffee break!
+  i hate writing comment. 
+  need a coffee break!
 */
 
 var uniquifyNames = function(items){
   var uniqueNames = {};
   
   return items.map(function (item) {
-     
     if(uniqueNames[item.name]){
       uniqueNames[item.name] += " ";
       item.name += uniqueNames[item.name];
+
     }
     else{
       uniqueNames[item.name] = "";
