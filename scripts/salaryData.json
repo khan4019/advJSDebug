@@ -1,7 +1,6 @@
 {
   "0" : {
-    "abc" : 123,
-    "hobby" : "talking",
+    "hobby" : "talking javascript",
     "name" : "Addy Osmani",
     "salary" : "76340.0"
   },
@@ -24,10 +23,13 @@
   },
   "5" : {
     "name" : "David Beckham",
-    "salary" : "64430.0"
+    "salary" : "64430.0",
+    "sleepHour" : 4
   },
   "6" : {
+    "favLibrary" : "React",
     "name" : "A Random Guy",
+    "pizzaSlice" : 5,
     "salary" : "36000.0"
   },
   "7" : {
