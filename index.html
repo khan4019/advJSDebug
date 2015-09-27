@@ -70,10 +70,10 @@
 					<section>
 						<h1>morning of a developer</h1>
 					</section>
-					<section><img src="images/sleep.jpg" alt=""></section>
+					<!--<section><img src="images/sleep.jpg" alt=""></section>
 					<section><img src="images/messyRoom.jpg" alt=""></section>
 					<section><img src="images/train5.jpg" alt=""></section>
-					<section><img src="images/train1.jpg" alt=""></section>
+					 --><section><img src="images/train1.jpg" alt=""></section>
 					<section><img src="images/train6.jpg" alt=""></section>
 					<section><img src="images/sucks.jpg" alt=""></section>
 					<section><img src="images/sleep1.jpg" alt=""></section>
@@ -108,6 +108,15 @@
 								<li>vorlon by MS</li>
 							</ul>
 						</div>
+					</section>
+					<section>
+						<img src="images/code1.png" alt="">
+					</section>
+					<section>
+						<img src="images/code2.png" alt="">
+					</section>
+					<section>
+						<img src="images/ohMe.jpg" alt="">
 					</section>
 					<section>
 						<h2>Summary: Problem-1</h2>
@@ -195,6 +204,85 @@
 						<h2>promise demo</h2>
 						<a href="http://www.html5rocks.com/en/tutorials/es6/promises/async-best-example.html">promise test</a>
 					</section>-->
+					<section>
+						<h2>promise error</h2>
+						<pre><code>
+get('story.json').then(function(response) {
+  console.log("Success!", response);
+}, function(error) {
+  console.log("Failed!", error);
+});							
+						</code></pre>
+						<pre class="fragment"><code>
+get('story.json').then(function(response) {
+  console.log("Success!", response);
+}).catch(function(error) {
+  console.log("Failed!", error);
+});							
+						</code></pre>
+					</section>
+					<section>
+						<img src="images/promise.png" alt="">
+					</section>
+					<section>
+						<h2>anther large code block.</h2>
+						<pre><code>
+asyncThing1().then(function() {
+  return asyncThing2();
+}).then(function() {
+  return asyncThing3();
+}).catch(function(err) {
+  return asyncRecovery1();
+}).then(function() {
+  return asyncThing4();
+}, function(err) {
+  return asyncRecovery2();
+}).catch(function(err) {
+  console.log("Don't worry about it");
+}).then(function() {
+  console.log("All done!");
+});							
+						</code></pre>
+						<br>
+						<a href="http://www.html5rocks.com/en/tutorials/es6/promises/">JavaScript Promises</a>
+					</section>
+					<section>
+						<h2>Q promise error</h2>
+						<pre><code>
+function theDepthsOfMyProgram() {
+  Q.delay(100).done(function explode() {
+    throw new Error("boo!");
+  });
+}
+
+theDepthsOfMyProgram();
+						</code></pre>
+						<pre class="fragment"><code>
+Error: boo!
+    at explode (/path/to/test.js:3:11)
+    at _fulfilled (/path/to/test.js:q:54)
+    at resolvedValue.promiseDispatch.done (/path/to/q.js:823:30)
+    at makePromise.promise.promiseDispatch (/path/to/q.js:496:13)
+    at pending (/path/to/q.js:397:39)
+    at process.startup.processNextTick.process._tickCallback (node.js:244:9)
+						</code></pre>
+					</section>
+					<section>
+						<h2>Long Strack Trace</h2>
+						<pre><code>
+Q.longStackSupport = true;							
+						</code></pre>
+						<pre class="fragment"><code>
+Error: boo!
+    at explode (/path/to/test.js:3:11)
+From previous event:
+    at theDepthsOfMyProgram (/path/to/test.js:2:16)
+    at Object.<anonymous> (/path/to/test.js:7:1)							
+						</code></pre>
+						<br>
+						<br>
+						<a href="https://github.com/kriskowal/q#long-stack-traces">long strack trace</a>
+					</section>
 					<section>
 						<h2>Summary: Async</h2>
 						<ul>
@@ -388,12 +476,7 @@
 							<li class="fragment" style="display: none"><a href="https://youtu.be/G0G36ShGYE0?t=2m20s">frying egg</a></li>
 						</section>
 					</section>
-					<section>
-						<section>
-							<h1>One thing</h1>
-							<h4 class="fragment">One thing you liked</h4>
-						</section>
-					</section>
+					
 				<section>
 					<h2><a href="http://goo.gl/mfKvWP">http://goo.gl/mfKvWP</a></h2>
 					<br>
