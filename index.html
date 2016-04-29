@@ -58,19 +58,6 @@
 					<p>(youtube.com/user/khanLearning)</p>
 				</section>
 				<section>
-					<li><a href="http://tutorialzine.com/2015/03/15-must-know-chrome-devtools-tips-tricks/">some good tips like Ctrl +D</a>
-					<li><a href="https://auth0.com/blog/2016/01/26/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/">CHeck this out for memory leak</a>
-					<li><a href="https://css-tricks.com/six-tips-for-chrome-devtools/">some awesome. film strip</a>
-					<li><a href="https://www.keycdn.com/blog/chrome-devtools/">Clear cookies</a>
-					<li><a href="https://www.youtube.com/watch?v=3EXNtmgf87s#">JS debugging technique</a>
-					<li><a href="https://jakearchibald.com/2016/streams-ftw/">very good managing promise and cancel call</a></li>
-					<li><a href="https://remysharp.com/2015/10/14/the-art-of-debugging">must read: remysharp</a></li>
-					<li><a href="http://developer.telerik.com/featured/16-ways-to-search-find-and-edit-with-chrome-devtools/">check some nice stuff: search in console tab</a></li>
-					<li><a href="http://ponyfoo.com/articles/es6-promises-in-depth">promise in depth</a></li>
-					<li><a href="http://blogs.msdn.com/b/eternalcoding/archive/2015/09/30/javascript-goes-to-asynchronous-city.aspx">might not be very good</a></li>
-					<li><a href="http://andyshora.com/promises-angularjs-explained-as-cartoon.html">read promise here</a></li>
-				</section>
-				<section>
 					<h2 style="display:none">TODO:</h2>
 					<h2>Life of a developer</h2>
 					<ul style="display:none">
@@ -134,14 +121,14 @@
 					<section>
 						<h2>Summary: Problem-1</h2>
 						<ul>
-							<li>Element: Event Listener</li>
-							<li class="fragment">Source: Event Listener BreakPoint</li>
+							<li>Elements Tab: Event Listeners</li>
+							<li class="fragment">Source Tab: Event Listener BreakPoints</li>
 							<li class="fragment"><a href="https://umaar.com/dev-tips/31-get-debug-event-listeners/">getEventListeners</a></li>							
-							<li class="fragment">monitorEvent(element, events)</li>
+							<li class="fragment">monitorEvent(element, [events])</li>
 							<li class="fragment">unmonitorEvents(element)</li>
-							<li class="fragment">$._data(element)</li>						
+							<li class="fragment">JQuery Event: $._data(element)</li>						
 							<li class="fragment">Show function definition</li>
-							<li class="fragment" style="display:none">for jquery, findEventHandlers.js</li>
+							<li class="fragment1" style="display:none">for jquery, findEventHandlers.js</li>
 							<li class="fragment">backbox script</li>
 						</ul>
 						<br>
@@ -156,13 +143,60 @@
 					<section>
 						<h2>Summary: Problem-2</h2>
 						<ul>
-							<li>open file: Ctrl + P</li>
-							<li class="fragment">filter function: Ctrl + shift + O</li>
+							<li>Open file: Ctrl + P</li>
+							<li class="fragment">Filter function: Ctrl + shift + O</li>
 							<li class="fragment">Matching Bracket: Ctrl + M</li>
 							<li class="fragment">console.table()</li>
 							<li class="fragment">conditional breakpoint</li>
 							<li class="fragment">Esc to open console</li>
 							<li class="fragment">Live Edit</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Small pieces</h1>
+					</section>
+					<section>
+						<h2>Style</h2>
+						<ul>
+							<li>Ctrl + z</li>
+							<li class="fragment">class toggle</li>
+							<li class="fragment">Edit Margin, Padding</li>
+							<li class="fragment">color picker and color palette</li>
+							<li class="fragment">Shift + Click: change color format</li>
+							<li class="fragment"><a href="https://css-tricks.com/six-tips-for-chrome-devtools/">DOM search by css selctor</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Console tab</h2>
+						<ul>
+							<li>$(), $$()</li>
+							<li class="fragment">$0, $1, $2</li>
+							<li class="fragment">debug(), undebug()</li>
+							<li class="fragment">keys(obj), values(obj)</li>
+							<li class="fragment"><a href="https://umaar.com/dev-tips/60-console-edit-html/">Edit html in console</a></li>
+							<li class="fragment">monitor function</li>
+							<li class="fragment">document.body.contentEditable = true</li>
+							<li class="fragment">Preserve log</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Source tab</h2>
+						<ul>
+							<li>Ctrl + G : Go to line</li>
+							<li class="fragment">Ctrl + Click: multi cursor</li>
+							<li class="fragment">Ctrl + D : select next occurrence</li>
+							<li class="fragment"></li>
+							<li class="fragment"></li>
+							<li class="fragment"></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Network tab</h2>
+						<ul>
+							<li>Filmstrip recording</li>
+							<li>copy a response</li>
 						</ul>
 					</section>
 				</section>
@@ -403,12 +437,8 @@ From previous event:
 						<h2>Easy and Useful</h2>
 						<ul>
 							<li>With DevTools opened: Click and hold the reload button</li>
-							<li class="fragment">Edit website: document.body.contentEditable = true</li>
 							<li class="fragment"><a href="https://developer.chrome.com/devtools/docs/workspaces">Workspace</a>: save from dev tool</li>
 							<li class="fragment"><a href="https://www.youtube.com/watch?t=264&v=FrAZWiMWRa4">Device mode</a>: device, network simulation</li>
-							<li class="fragment">keys(obj), values(obj)</li>
-							<li class="fragment"><a href="https://umaar.com/dev-tips/60-console-edit-html/">Edit html in console</a></li>
-							<li class="fragment">monitor function</li>
 						</ul>
 						<br>
 						<br>
@@ -416,8 +446,6 @@ From previous event:
 					</section>
 					<section>
 						<h2>More others</h2>
-						<li>Ctrl + z</li>
-						<li>color picker</li>
 						<li><a href="https://umaar.com/dev-tips/50-media-query-inspector/">debug media queries</a></li>
 												
 					</section>
@@ -452,6 +480,15 @@ From previous event:
 							<li class="fragment">extensions: web developer, edit cookie, etc.</li>
 							<li class="fragment">document.body.contentEditable = true</li>
 						</ol>
+					</section>
+					<section>
+						<h2>Need more?</h2>
+						<ul>
+							<li><a href="https://remysharp.com/2015/10/14/the-art-of-debugging">Art of Debugging</a></li>
+							<li><a href="http://andyshora.com/promises-angularjs-explained-as-cartoon.html">Explain promise as cartoon</a></li>
+							<li><a href="https://auth0.com/blog/2016/01/26/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/">4 Types of Memory Leak in JS</a>
+							<li><a href="http://ponyfoo.com/articles/es6-promises-in-depth">ES6 promise in depth</a></li>
+						</ul>
 					</section>
 					<!-- <section>
 						<h1>Deleted Scene</h1>
