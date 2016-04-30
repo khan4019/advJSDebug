@@ -72,7 +72,7 @@ $(document).ready(function(){
           });
 
 
-  document.getElementById("recordCount").addEventListener("click", anotherRecordCountHandler);
+  //document.getElementById("recordCount").addEventListener("click", anotherRecordCountHandler);
 
  // $('#addRecord').click(secondHandler);
 
