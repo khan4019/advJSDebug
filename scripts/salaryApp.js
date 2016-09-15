@@ -76,6 +76,11 @@ $(document).ready(function(){
 
  // $('#addRecord').click(secondHandler);
 
+
+ window.setTimeout(function () {
+   document.getElementById("recordCount").setAttribute('class', 'btn btn-success');
+ }, 2000)
+
 });
   
 

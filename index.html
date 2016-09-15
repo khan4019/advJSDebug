@@ -4,31 +4,41 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Advanced JavaScript Debugging</title>
+		<title>Adv – JS Debug</title>
 
-		<meta name="description" content="Javascript debugging beyound basics">
-		<meta name="author" content="that js dude">
+		<meta name="description" content="Advanced Javascript debugging">
+		<meta name="author" content="Md Khan">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="shortcut icon" href="images/favicon.jpg">
+		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
-		<link rel="stylesheet" href="css/custom.css">
-		<!-- For syntax highlighting -->
+
+		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
+		<!-- Printing and PDF exports -->
+		<style>
+			.hide{
+				display:none !important;
 			}
+			.noTextFormat a{
+				text-transform: none;
+			}
+
+			.noTextFormat span{
+				text-transform: none;
+			}
+		</style>
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
 		<!--[if lt IE 9]>
@@ -196,13 +206,6 @@
 							<li class="fragment"></li>
 						</ul>
 					</section>
-					<section>
-						<h2>Network tab</h2>
-						<ul>
-							<li>Filmstrip recording</li>
-							<li>Copy a response</li>
-						</ul>
-					</section>
 				</section>
 				<section>
 					<section>
@@ -334,13 +337,18 @@ From previous event:
 						<br>
 						<a href="https://github.com/kriskowal/q#long-stack-traces">long strack trace</a>
 					</section>
+				</section>
+				<section>
 					<section>
 						<h2>Summary: Async</h2>
 						<ul>
 							<li>filter by, "Method:GET", domain:google,</li>
 							<li>replay XHR</li>
 							<li>async</li>
-							<li>XHR breakpoint</li>
+							<li>XHR breakpoint</li>						
+							<li>Filmstrip recording</li>
+							<li>Copy a response</li>
+							<li>Network throttle</li>
 						</ul>
 					</section>
 				</section>
@@ -484,10 +492,12 @@ From previous event:
 					<section>
 						<h2>Need more?</h2>
 						<ul>
+							<li><a href="http://discover-devtools.codeschool.com/">Code School: devtool course</a></li>
 							<li><a href="https://remysharp.com/2015/10/14/the-art-of-debugging">Art of Debugging</a></li>
 							<li><a href="http://andyshora.com/promises-angularjs-explained-as-cartoon.html">Explain promise as cartoon</a></li>
 							<li><a href="https://auth0.com/blog/2016/01/26/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/">4 Types of Memory Leak in JS</a>
 							<li><a href="http://ponyfoo.com/articles/es6-promises-in-depth">ES6 promise in depth</a></li>
+							<li><a href="https://webkit.org/blog/6425/memory-debugging-with-web-inspector/">Memory Debugging</a></li>
 						</ul>
 					</section>
 					<!-- <section>
@@ -547,31 +557,27 @@ From previous event:
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
+			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				controls: true,
 				progress: true,
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
-
-				// Optional libraries used to extend on reveal.js
+				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
 
