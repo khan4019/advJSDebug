@@ -78,6 +78,38 @@
 				</section>-->
 				<section>
 					<section>
+						<h2>Who is</h2>
+						<h1>JS   Dude?</h1>
+					</section>
+					<section>
+						<img src="./images/others/dude.jpeg" alt="">
+						<ul>
+							<li style="color:purple"><strong>@jsdude005</strong></li>
+							<li>Organize Chicago JavaScript meetup</li>
+							<li>Sr. Web Developer, Nielsen</li>
+							<li>Enjoy Learning, talking about JavaScript</li>
+							<!-- <li>Twin Cities code camp in 2013, 2014</li> -->
+						</ul>
+					</section>
+					<section>
+							<h2>Jump from 14,000ft </h2>
+						<img src="./images/others/jump.JPG" alt="">
+					</section>
+					<!-- <section>
+						<img src="./images/others/skydiving.JPG" alt="">
+					</section> -->
+					<section>
+							<h2>Chicago Marathon 2016</h2>
+						<img src="./images/others/marathon.jpg" alt="">
+					</section>
+					<section>
+							<h2>10,000 volts</h2>
+						<img src="./images/others/mudder.jpg" alt="">
+					</section>
+				</section>
+				
+				<section>
+					<section>
 						<h1>Morning of a developer</h1>
 					</section>
 					<section><img src="images/sleep.jpg" alt=""></section>
@@ -106,6 +138,8 @@
 						<ul>
 							<li>Repro locally</li>
 							<li>Anything in console</li>
+							<li>Isolate the bug</li>
+							<li>Look at the data in network tab</li>
 							<li>Sort out of the options</li>
 							<li>Talk about how things were developed</li>
 							<li class="fragment">Easy things first</li>
@@ -131,7 +165,7 @@
 					</section>
 					<section>
 						<h2>Summary: Problem-1</h2>
-						<ul>
+						<ol>
 							<li>Elements Tab: Event Listeners</li>
 							<li class="fragment">Source Tab: Event Listener BreakPoints</li>
 							<li class="fragment"><a href="https://umaar.com/dev-tips/31-get-debug-event-listeners/">getEventListeners</a></li>							
@@ -140,12 +174,12 @@
 							<!-- <li class="fragment">JQuery Event: $._data(element)</li> -->						
 							<li class="fragment">Show function definition</li>
 							<li class="fragment1" style="display:none">for jquery, findEventHandlers.js</li>
-							<li class="fragment">blackbox script</li>
-						</ul>
+							
+						</ol>
 						<br>
 						<br>
 						<br>
-						<a href="https://github.com/ruidfigueiredo/findHandlersJS ">jquery findEventHandlers</a>
+						<!-- <a href="https://github.com/ruidfigueiredo/findHandlersJS ">jquery findEventHandlers</a> -->
 					</section>
 					<section>
 						<h1>You are not done!</h1>
@@ -154,13 +188,13 @@
 					<section>
 						<h2>Summary: Problem-2</h2>
 						<ul>
-							<li>Open file: Ctrl + P</li>
-							<li class="fragment">Filter function: Ctrl + shift + O</li>
-							<li class="fragment">Matching Bracket: Ctrl + M</li>
+							<li>Open file: cmd + P (Ctrl + P)</li>
+							<li class="fragment">Filter function: Cmd + shift + O (Ctrl + shift + O)</li>
 							<li class="fragment">console.table()</li>
 							<li class="fragment">conditional breakpoint</li>
 							<li class="fragment">Esc to open console</li>
 							<li class="fragment">Live Edit</li>
+							<li class="fragment">blackbox script</li>
 						</ul>
 					</section>
 				</section>
@@ -171,7 +205,7 @@
 					<section>
 						<h2>Style</h2>
 						<ul>
-							<li>Ctrl + z</li>
+							<li>Cmd + z (Ctrl + z)</li>
 							<li class="fragment">class toggle</li>
 							<li class="fragment">Edit Margin, Padding</li>
 							<li class="fragment">color picker and color palette</li>
@@ -182,8 +216,8 @@
 					<section>
 						<h2>Console tab</h2>
 						<ul>
-							<li>$(), $$()</li>
-							<li class="fragment">$0, $1, $2</li>
+							<li>console.log</li>
+							<!--<li class="fragment">$0, $1, $2</li> -->
 							<li class="fragment">debug(), undebug()</li>
 							<li class="fragment">keys(obj), values(obj)</li>
 							<li class="fragment1" style="display: none;"><a href="https://umaar.com/dev-tips/60-console-edit-html/">Edit html in console</a></li>
@@ -199,11 +233,13 @@
 						<h2>Source tab</h2>
 						<ul>
 							<li>Ctrl + G : Go to line</li>
+							<li>Cmd + option + F (ctrl + shift + F)</li>
+							<li class="fragment">Break point in a long line</li>
+							<li class="fragment">Matching Bracket: Ctrl + M</li>
+							<li class="fragment">???</li>
 							<li class="fragment">Ctrl + Click: multi cursor</li>
 							<li class="fragment">Ctrl + D : select next occurrence</li>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
+							
 						</ul>
 					</section>
 				</section>
@@ -258,7 +294,7 @@
 						<h2>promise demo</h2>
 						<a href="http://www.html5rocks.com/en/tutorials/es6/promises/async-best-example.html">promise test</a>
 					</section>-->
-					<section>
+					<!-- <section>
 						<h2>promise error</h2>
 						<pre><code>
 get('story.json').then(function(response) {
@@ -320,9 +356,9 @@ Error: boo!
     at pending (/path/to/q.js:397:39)
     at process.startup.processNextTick.process._tickCallback (node.js:244:9)
 						</code></pre>
-					</section>
+					</section> 
 					<section>
-						<h2>Long Strack Trace</h2>
+						<h2>Long Stack Trace</h2>
 						<pre><code>
 Q.longStackSupport = true;							
 						</code></pre>
@@ -336,7 +372,7 @@ From previous event:
 						<br>
 						<br>
 						<a href="https://github.com/kriskowal/q#long-stack-traces">long strack trace</a>
-					</section>
+					</section>-->
 				</section>
 				<section>
 					<section>
@@ -412,7 +448,7 @@ From previous event:
 							<li>jquerify</li>
 							<li>all colors</li>
 							<li>view cookies</li>
-							<li>form contorls</li>
+							<li>form controls</li>
 						</ul>
 						<br>
 						<br>
@@ -538,19 +574,32 @@ From previous event:
 							<img src="images/pizzaFry.jpg" alt="">
 						</section>
 					</section>
-					
-				<section>
-					<h2><a href="http://goo.gl/mfKvWP">goo.gl/mfKvWP</a></h2>
-					<br>
-					<br>
-					<br>
-					<h3>
-						<a href="http://www.thatjsdude.com/">www.thatJSdude.com</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
-					</h3>
-					<p>(youtube.com/user/khanLearning)</p>
-					<small>[Thank you, if you are still reading slides]</small>
-				</section>
-
+					<section>
+						<h2>To be a better Developer</h2>
+						<ul>
+							<li>You have to be curiously explore</li>
+							<li>Learning interesting things</li>
+							<li>Build passion, experiment and enjoy</li>
+							<li class="fragment">It's not easy...it will challenge you</li>
+							<li class="fragment">But this will give you fulfillment</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Learn by building</h2>
+						<ul>
+							<li><a href="http://thatjsdude.com/workshops/react/mn.html">Spend a day to enjoy building a site</a></li>
+							<li>Build an <a href="https://ema-john.firebaseapp.com/">e-commerce site</a> </li>
+							<li>Email: <span style="color:lightcoral">khan4019@gmail.com</span> </li>
+						</ul>
+						<img style="height:350px;" src="./images/others/workshop1.JPG" alt="">
+					</section>
+					<section>
+						<h1>Thank you</h1>
+						<p>Email: <span style="color:lightcoral">khan4019@gmail.com</span></p>
+						<p><strong style="color:purple">@jsdude005</strong></p>
+						<p><small >www.thatJSDude.com</small></p>
+					</section>	
+				
 			</div>
 
 		</div>
