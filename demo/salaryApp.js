@@ -221,6 +221,13 @@ var showRecordCount = function (data) {
 
 var anotherRecordCountHandler = function anotherRecordCountHandler (e) {
   console.log('you have extra click handler');
+  for(let i = 0; i<10; i++){const isEven = i%2 ? 'odd' : 'even'; console.log(isEven) }
+}
+
+
+function longLineCode () {
+  console.log('you have extra click handler');
+  for(let i = 0; i<10; i++){const isEven = i%2 ? 'odd' : 'even'; console.log(isEven) }
 }
 
 /*
