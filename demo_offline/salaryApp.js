@@ -1,28 +1,11 @@
-//import config from './firebase.config.js';
-var config = {
-  apiKey: "AIzaSyDUe_QsE7msCtmSEP0VoYKoSdoBwxWR9ZE",
-  authDomain: "salay-app-1d5f9.firebaseapp.com",
-  databaseURL: "https://salay-app-1d5f9.firebaseio.com",
-  projectId: "salay-app-1d5f9",
-  storageBucket: "salay-app-1d5f9.appspot.com",
-  messagingSenderId: "692431098932"
-};
 
 
-var firebaseApp =  firebase.initializeApp(config);
-
-var myDataRef = firebaseApp.database();
-var defaultDatabase = firebase.database();
-
-
-firebase.database().ref('/users/56wucYxtqx7xonCnBhnt').once('value').then( function(response) {
-  console.log('inside')
-  var data = response.val();
+function init(data){
   var chartData = formatChartData(data);
   drawChart(chartData);
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject);
-});
+
+}
+  
 
 
 var formatChartData = function (data) {
@@ -69,7 +52,7 @@ var drawChart = function drawChart (data) {
 
 //save new item
 $(document).ready(function(){
-
+  init(salary_data);
   logGitData(initialCountLisetner);
 
   $('#addRecord').click(addRecordHandler);
@@ -125,7 +108,10 @@ function addRecordHandler() {
 
   function addRecord (name, salary) {
     var newItem = getRecord(name, salary);
-    myDataRef.push(newItem);
+    var id = Math.ceil(Math.random()*1000000000);
+    
+    salary_data[id] = newItem;
+    init(salary_data);
   }
 
   function getRecord (name, salary) {
@@ -153,25 +139,19 @@ function secondHandler(e) {
 }
 
 var showLastItem = function () {
-  myDataRef.on("value", function(response) {
-    var items = response.val();
+  
+    var items = salary_data;
     for(var lastKey in items);
     var lastItem = items[lastKey];
     var lastRecord = getRecord(lastItem.name, lastItem.salary);
     displayLastItemDialog(lastRecord);
-  }, function (error) {
-    console.error("Failed to get data: " + error.code);
-  });
+  
 }
 
 var loadFirebaseData = function (resHandler) {
-  myDataRef.on("value", function(response) {
-    var data = response.val();
+    var data = salary_data;
     var chartData = formatChartData(data);
     resHandler(chartData);
-  }, function (error) {
-    console.error("Failed to get data: " + error.code);
-  });
 }
 
 
