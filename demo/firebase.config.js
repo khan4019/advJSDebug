@@ -1,6 +1,6 @@
   // Initialize Firebase
    var config = {
-    apiKey: "AIzaSyDUe_QsE7msCtmSEP0VoYKoSdoBwxWR9ZE",
+    apiKey: "",
     authDomain: "salay-app-1d5f9.firebaseapp.com",
     databaseURL: "https://salay-app-1d5f9.firebaseio.com",
     projectId: "salay-app-1d5f9",

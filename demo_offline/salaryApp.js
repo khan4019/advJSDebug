@@ -1,6 +1,6 @@
 
 
-function init(data){
+function initializeChart(data){
   var chartData = formatChartData(data);
   drawChart(chartData);
 
@@ -53,7 +53,7 @@ var drawChart = function drawChart (data) {
 //save new item
 $(document).ready(function(){
   init(salary_data);
-  logGitData(initialCountLisetner);
+  initializeChartitData(initialCountLisetner);
 
   $('#addRecord').click(addRecordHandler);
 
